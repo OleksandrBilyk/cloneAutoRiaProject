@@ -5,7 +5,7 @@ from django.core import validators as V
 from django.db import models
 
 from apps.cars.choices import CarChoices
-from apps.user_auto_lots.models import UserAutoLotsModel
+from apps.users.models import UserModel
 
 
 class CarModel(BaseModel):
@@ -22,4 +22,4 @@ class CarModel(BaseModel):
     price = models.IntegerField()
     year = models.IntegerField()
     body_type = models.CharField(max_length=50)
-    auto_lot = models.ForeignKey(UserAutoLotsModel, on_delete=models.CASCADE, related_name='cars')
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name='cars')
