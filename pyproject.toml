@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "cloneautoriaproject"
+version = "0.1.0"
+description = ""
+authors = ["Oleksandr <biluksanya@ukr.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+djangorestframework = "^3.15.2"
+mysqlclient = "^2.2.4"
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.2"
+django-dotenv = "^1.4.2"
+django-filter = "^24.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
