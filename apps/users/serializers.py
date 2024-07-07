@@ -5,7 +5,7 @@ from rest_framework import serializers
 
 from apps.cars.serializers import CarSerializer
 from apps.users.models import ProfileModel
-
+from django.core.files import File
 UserModel = get_user_model()
 
 
@@ -20,6 +20,13 @@ class ProfileAvatarSerializer(serializers.ModelSerializer):
         model = ProfileModel
         fields = ('avatar',)
         extra_kwargs = {'avatar': {'required': True}}
+
+    def validate_avatar(self, avatar: File):
+        max_size = 100 * 1024
+        if avatar.size > max_size:
+            raise serializers.ValidationError('max_size 100Kb')
+
+        return avatar
 
 
 class UserSerializer(serializers.ModelSerializer):
