@@ -12,7 +12,14 @@ UserModel = get_user_model()
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProfileModel
-        fields = ('id', 'name', 'surname', 'age')
+        fields = ('id', 'name', 'surname', 'age', 'avatar')
+
+
+class ProfileAvatarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProfileModel
+        fields = ('avatar',)
+        extra_kwargs = {'avatar': {'required': True}}
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -21,10 +28,10 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
         fields = (
-            'id', 'email', 'password', 'is_active', 'is_staff', 'is_superuser', 'is_seller', 'last_login', 'created_at',
+            'id', 'email', 'password', 'is_active', 'is_staff', 'is_superuser', 'is_premium', 'last_login', 'created_at',
             'updated_at', 'profile', 'cars'
         )
-        read_only_fields = ('id', 'is_active', 'is_staff', 'is_seller', 'is_superuser', 'last_login', 'created_at', 'updated_at')
+        read_only_fields = ('id', 'is_active', 'is_staff', 'is_premium', 'is_superuser', 'last_login', 'created_at', 'updated_at')
         extra_kwargs = {
             'password': {
                 'write_only': True
