@@ -6,6 +6,8 @@ from rest_framework import serializers
 from apps.cars.serializers import CarSerializer
 from apps.users.models import ProfileModel
 from django.core.files import File
+from core.services.email_service import EmailService
+
 UserModel = get_user_model()
 
 
@@ -50,4 +52,5 @@ class UserSerializer(serializers.ModelSerializer):
         profile = validated_data.pop('profile')
         user = UserModel.objects.create_user(**validated_data)
         ProfileModel.objects.create(**profile, user=user)
+        EmailService.register(user)
         return user

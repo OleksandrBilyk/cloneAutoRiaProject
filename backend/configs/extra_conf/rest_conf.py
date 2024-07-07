@@ -2,9 +2,9 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
     ],
-    # 'DEFAULT_PARSER_CLASSES': [
-    #     'rest_framework.parsers.JSONParser',
-    # ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ],
 
     'DEFAULT_PAGINATION_CLASS': 'core.pagination.PagePagination',
     'DEFAULT_FILTER_BACKENDS': (
@@ -15,6 +15,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES': [
         'core.permissions.IsSuperUser',
-    ]
+    ],
+    'EXCEPTION_HANDLER': 'core.handlers.error_handler.error_handler',
 
 }
