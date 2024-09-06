@@ -1,9 +1,13 @@
-from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated, IsAuthenticatedOrReadOnly
-from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
+from rest_framework.generics import (ListAPIView, RetrieveUpdateDestroyAPIView,
+                                     UpdateAPIView)
+from rest_framework.permissions import (AllowAny, IsAdminUser, IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
+
+from apps.cars.models import CarModel
+from apps.cars.serializers import (CarListSerializer, CarSerializer,
+                                   ProfilePhotoCarSerializer)
 
 from .filters import CarFilter
-from apps.cars.models import CarModel
-from apps.cars.serializers import CarSerializer, CarListSerializer, ProfilePhotoCarSerializer
 
 
 class CarListView(ListAPIView):

@@ -1,15 +1,19 @@
 import os
-from django.contrib.auth import get_user_model
-from rest_framework import status
-from django.template.loader import get_template
-from django.core.mail import EmailMultiAlternatives
-from rest_framework.generics import ListCreateAPIView, GenericAPIView, UpdateAPIView
+
 from core.permissions import IsAuthenticatedForGetOrWriteOnly
+from django.contrib.auth import get_user_model
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
+from rest_framework import status
+from rest_framework.generics import (GenericAPIView, ListCreateAPIView,
+                                     UpdateAPIView)
+from rest_framework.permissions import (AllowAny, IsAdminUser, IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
-from apps.users.models import ProfileModel
-from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated, IsAuthenticatedOrReadOnly
+
 from apps.cars.serializers import CarSerializer
-from apps.users.serializers import UserSerializer, ProfileAvatarSerializer
+from apps.users.models import ProfileModel
+from apps.users.serializers import ProfileAvatarSerializer, UserSerializer
 
 UserModel = get_user_model()
 

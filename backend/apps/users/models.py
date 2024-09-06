@@ -1,10 +1,11 @@
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from core.models import BaseModel
-from django.db import models
-from apps.users.managers import UserManager
-from core.services.upload_avatar import upload_avatar
-from django.core import validators as V
 from core.enums.regex_enum import RegexEnum
+from core.models import BaseModel
+from core.services.upload_avatar import upload_avatar
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.core import validators as V
+from django.db import models
+
+from apps.users.managers import UserManager
 
 
 class UserModel(BaseModel, AbstractBaseUser, PermissionsMixin):
