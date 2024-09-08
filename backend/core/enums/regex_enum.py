@@ -25,6 +25,11 @@ class RegexEnum(Enum):
         'first letter uppercase min 3 max 50'
     )
 
+    MODEL_CAR = (
+        r'^[A-Z][a-zA-Z\s]{2,49}$',
+        'first letter uppercase min 3 max 50'
+    )
+
     def __init__(self, pattern:str, msg:str|list[str]):
         self.pattern = pattern
         self.msg = msg

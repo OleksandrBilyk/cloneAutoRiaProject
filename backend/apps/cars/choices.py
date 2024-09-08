@@ -7,3 +7,12 @@ class CarChoices(TextChoices):
     Coupe = 'Coupe'
     Crossover = 'Crossover'
     Universal = 'Universal'
+
+
+class CarBrandChoices(TextChoices):
+    BMW = "BMW"
+    AUDI = "AUDI"
+    Fiat = 'Fiat'
+    Mazda = 'Mazda'
+    Nissan = 'Nissan'
+    Scoda = 'Scoda'
